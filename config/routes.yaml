@@ -6,5 +6,9 @@ app_lucky_number:
     path: /lucky/number
     controller: App\Controller\DefaultController::number
 
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
 logout:
     path: /logout
