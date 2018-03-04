@@ -1,33 +1,41 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User:
+        AppBundle\Entity\User:
             algorithm: bcrypt
     providers:
-        in_memory:
-            memory:
-                users:
-                    ryan:
-                        password: $2y$12$IGO38ffi2bBHTVEdQyAPv.iwLiehXfROyHNC.Azz46LEWCr.cWPEy
-                        roles: 'ROLE_USER'
-                    admin:
-                        password: $2y$12$lF.1xz4bfpZ33QDUZaFMvewO/fD/MI6tflPz9hCFe0dxe4WlIKBde
-                        roles: 'ROLE_ADMIN'
+         our_db_provider:
+             entity:
+                 class: AppBundle:User
+                 property: username
+
+#        in_memory:
+#            memory:
+#                users:
+#                    ryan:
+#                        password: $2y$12$IGO38ffi2bBHTVEdQyAPv.iwLiehXfROyHNC.Azz46LEWCr.cWPEy
+#                        roles: 'ROLE_USER'
+#                    admin:
+#                        password: $2y$12$lF.1xz4bfpZ33QDUZaFMvewO/fD/MI6tflPz9hCFe0dxe4WlIKBde
+#                        roles: 'ROLE_ADMIN'
     firewalls:
+#        secured_area:
+#            logout:
+#                path:   /logout
+#                target: /
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            http_basic: ~
+            provider: our_db_provider
 
             form_login:
                 login_path: login
                 check_path: login
 
-#        secured_area:
-#            # ...
-#            logout:
-#                path:   /logout
-#                target: /
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
     access_control:
          - { path: ^/lucky/number, roles: ROLE_ADMIN }
