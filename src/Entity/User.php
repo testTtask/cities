@@ -6,12 +6,13 @@
  * Time: 13:48
  */
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Table(name="app_users")
+ * @ORM\Entity()
  */
 class User implements UserInterface, \Serializable
 {
@@ -45,8 +46,7 @@ class User implements UserInterface, \Serializable
     public function __construct()
     {
         $this->isActive = true;
-        // может не понадобиться, смотрите раздел о соли ниже
-        // $this->salt = md5(uniqid(null, true));
+
     }
 
     public function getUsername()
@@ -56,8 +56,7 @@ class User implements UserInterface, \Serializable
 
     public function getSalt()
     {
-        // вам *может* понадобиться настоящая соль, в зависимости от вашего кодировщика
-        // смотрите раздел о соли ниже
+
         return null;
     }
 
