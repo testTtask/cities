@@ -5,6 +5,7 @@
 /vendor/
 .idea/
 /.idea/
+composer.phar
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###
