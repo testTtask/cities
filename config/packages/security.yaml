@@ -14,12 +14,11 @@ security:
             security: false
         main:
             anonymous: true
-            http_basic: ~
             form_login:
                 login_path: login
                 check_path: login
-                username_parameter: form[_username]
-                password_parameter: form[_password]
+                default_target_path: app_lucky_number
+                csrf_token_generator: security.csrf.token_manager
             logout:
                 path:   /logout
                 target: /login
