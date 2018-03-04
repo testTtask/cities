@@ -2,6 +2,7 @@
 
 
 namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -12,7 +13,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface, \Serializable
 {
 
-    const ROLES = [0=>'ROLE_ADMIN'];
+    const ROLES = [
+        0 => 'ROLE_ADMIN'
+    ];
 
     /**
      * @ORM\Column(type="integer")
