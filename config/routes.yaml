@@ -2,6 +2,10 @@ render:
     path: /
     controller: App\Controller\RenderController::index
 
+render_cities:
+    path: /render_cities
+    controller: App\Controller\RenderController::getCities
+
 login:
     path: /login
     controller: App\Controller\SecurityController::login

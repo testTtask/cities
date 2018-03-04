@@ -17,4 +17,18 @@ class RenderController extends Controller
         );
     }
 
+    public function getCities()
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $cities = $em->getRepository('App\Entity\Cities')->getRandomCities();
+
+
+      foreach ($cities as $city){
+
+
+      }
+
+    }
+
 }
