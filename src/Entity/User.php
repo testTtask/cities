@@ -11,6 +11,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface, \Serializable
 {
+
+    const ROLES = [0=>'ROLE_ADMIN'];
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -29,14 +32,14 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=60, unique=true)
-     */
-    private $email;
-
-    /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
+
+    /**
+     * @ORM\Column(name="role", type="integer")
+     */
+    private $role;
 
     public function __construct()
     {
@@ -62,7 +65,7 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array(self::ROLES[$this->role]);
     }
 
     public function eraseCredentials()
@@ -76,8 +79,6 @@ class User implements UserInterface, \Serializable
             $this->id,
             $this->username,
             $this->password,
-            // смотрите раздел о соли ниже
-            // $this->salt,
         ));
     }
 
@@ -88,8 +89,6 @@ class User implements UserInterface, \Serializable
             $this->id,
             $this->username,
             $this->password,
-            // смотрите раздел о соли ниже
-            // $this->salt
             ) = unserialize($serialized);
     }
 }
