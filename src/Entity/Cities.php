@@ -21,55 +21,55 @@ class Cities
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $city;
 
     /**
      * @var string
-     * @ORM\Column(name="city_ascii", type="string", length=255)
+     * @ORM\Column(name="city_ascii", type="string", length=50)
      */
     private $cityAscii;
 
     /**
-     * @var string
-     * @ORM\Column(type="string", length=255)
+     * @var float
+     * @ORM\Column(type="float", length=12, scale=9)
      */
     private $lat;
 
     /**
-     * @var string
-     * @ORM\Column(type="string", length=255)
+     * @var float
+     * @ORM\Column(type="float", length=12, scale=9)
      */
     private $lng;
 
     /**
-     * @var string
-     * @ORM\Column(type="string", length=255)
+     * @var float
+     * @ORM\Column(type="float", length=10, scale=2)
      */
     private $pop;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $country;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=4)
      */
     private $iso2;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=4)
      */
     private $iso3;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $province;
 
@@ -115,49 +115,49 @@ class Cities
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getLat(): ?string
+    public function getLat(): ?float
     {
         return $this->lat;
     }
 
     /**
-     * @param string $lat
+     * @param float $lat
      */
-    public function setLat(?string $lat)
+    public function setLat(?float $lat)
     {
         $this->lat = $lat;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getLng(): ?string
+    public function getLng(): ?float
     {
         return $this->lng;
     }
 
     /**
-     * @param string $lng
+     * @param float $lng
      */
-    public function setLng(?string $lng)
+    public function setLng(?float $lng)
     {
         $this->lng = $lng;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getPop(): ?string
+    public function getPop(): ?float
     {
         return $this->pop;
     }
 
     /**
-     * @param string $pop
+     * @param float $pop
      */
-    public function setPop(?string $pop)
+    public function setPop(?float $pop)
     {
         $this->pop = $pop;
     }
