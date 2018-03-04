@@ -3,7 +3,6 @@ security:
     encoders:
         AppBundle\Entity\User:
                     algorithm: bcrypt
-                    cost: 12
 
     providers:
          our_db_provider:
@@ -31,6 +30,7 @@ security:
         main:
             anonymous: true
             http_basic: ~
+            provider: our_db_provider
 
             # activate different ways to authenticate
 
