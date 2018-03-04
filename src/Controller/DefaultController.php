@@ -4,8 +4,9 @@ namespace App\Controller;
 
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Tests\Controller;
 
-class DefaultController
+class DefaultController extends Controller
 {
     public function index()
     {
@@ -19,7 +20,7 @@ class DefaultController
         $number = mt_rand(0, 100);
 
         return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
+            '<html><body>Lucky number: '.$number.'<br><a href="'.$this->get('router')->generate('app_lucky_number').'"><button>Выход</button></a></body></html>'
         );
     }
 
